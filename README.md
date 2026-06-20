@@ -45,6 +45,8 @@ $result = Invoke-RestMethod -Method GET -Uri "http://localhost:3000/api/cart/che
 $result.items | Format-Table -AutoSize
 $result.summary | Format-List
 
+---
+
 ###Setup Instructions
 
 **Prerequisites**
