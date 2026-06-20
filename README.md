@@ -32,6 +32,7 @@ A **production-ready** Shopping Cart microservice built with Node.js, Express, a
 **1. Add / Update Item**
 
 powershell
+
 Invoke-RestMethod -Method POST -Uri "http://localhost:3000/api/cart/items" `
   -Headers @{ "x-user-id" = "swetha123" } `
   -ContentType "application/json" `
@@ -40,6 +41,7 @@ Invoke-RestMethod -Method POST -Uri "http://localhost:3000/api/cart/items" `
 **2. View Checkout and summary (JSON)**
 
 powershell
+
 Invoke-RestMethod -Method GET -Uri "http://localhost:3000/api/cart/checkout" `
   -Headers @{ "x-user-id" = "swetha123" } | ConvertTo-Json -Depth 5`
 $result = Invoke-RestMethod -Method GET -Uri "http://localhost:3000/api/cart/checkout" `
