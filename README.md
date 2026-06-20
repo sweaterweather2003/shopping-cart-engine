@@ -27,11 +27,9 @@ A **production-ready** Shopping Cart microservice built with Node.js, Express, a
 
 ---
 
-### Example Usage
+### Usage in powershell
 
 **1. Add / Update Item**
-
-powershell
 
 Invoke-RestMethod -Method POST -Uri "http://localhost:3000/api/cart/items" `
   -Headers @{ "x-user-id" = "swetha123" } `
@@ -39,8 +37,6 @@ Invoke-RestMethod -Method POST -Uri "http://localhost:3000/api/cart/items" `
   -Body '{"productId":"p1","name":"Wireless Headphones","price":89.99,"quantity":2}' 
 
 **2. View Checkout and summary (JSON)**
-
-powershell
 
 Invoke-RestMethod -Method GET -Uri "http://localhost:3000/api/cart/checkout" `
   -Headers @{ "x-user-id" = "swetha123" } | ConvertTo-Json -Depth 5`
