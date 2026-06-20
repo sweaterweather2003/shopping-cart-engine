@@ -27,7 +27,7 @@ A **production-ready** Shopping Cart microservice built with Node.js, Express, a
 
 ---
 
-### Usage in powershell
+## Usage in powershell
 
 **1. Add / Update Item**
 
@@ -47,7 +47,7 @@ $result.summary | Format-List
 
 ---
 
-###Setup Instructions
+##Setup Instructions
 
 **Prerequisites**
 
