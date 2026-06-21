@@ -10,7 +10,7 @@ router.use(rateLimit);
 
 router.post('/items', validateAddItem, cartController.addOrUpdateItem);
 router.get('/checkout', cartController.getCheckout);
-router.delete('/', cartController.clearCart);
-router.delete('/items/:productId', cartController.removeItem); // Bonus
+router.delete('/items/:productId', cartController.removeItem);
+router.delete('/clear', cartController.clearCart);     
 
 module.exports = router;
