@@ -1,6 +1,6 @@
-  ## 1. Architecture & Separation of Concerns
+  ## 1\. Architecture & Separation of Concerns
     
-    The project follows a **layered architecture**:
+  * The project follows a **layered architecture**:
     
     - **Routes** → Handle HTTP requests
     - **Controllers** → Orchestrate business logic and responses
