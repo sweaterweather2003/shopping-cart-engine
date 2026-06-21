@@ -6,21 +6,37 @@ const Cart = require('../models/Cart');
 const addOrUpdateItem = async (req, res) => {
   try {
     const { userId } = req;
-    const { productId, name, price, quantity } = req.body;
+    const { productId, name, price, quantity = 1 } = req.body;
 
     let cart = await getOrCreateCart(userId);
 
-    const existing = cart.items.findIndex(i => i.productId === productId);
-    if (existing !== -1) {
-      cart.items[existing].quantity += quantity;
-      if (cart.items[existing].quantity <= 0) cart.items.splice(existing, 1);
-    } else if (quantity > 0) {
-      cart.items.push({ productId, name, price, quantity });
+    // Check by productId (Primary) or name (Fallback)
+    let existingIndex = cart.items.findIndex(item => 
+      item.productId === productId || 
+      item.name.toLowerCase() === name.toLowerCase()
+    );
+
+    if (existingIndex !== -1) {
+      // Same product found → Increment quantity
+      cart.items[existingIndex].quantity += quantity;
+      logger.info(`Quantity updated for product ${productId || name}`);
+    } else {
+      // New product → Add as new item
+      cart.items.push({ 
+        productId, 
+        name, 
+        price, 
+        quantity 
+      });
+      logger.info(`New item added: ${name}`);
     }
 
     await cart.save();
-    logger.info(`Cart updated for user ${userId}`);
-    res.json({ message: 'Cart updated', items: cart.items });
+
+    res.json({ 
+      message: existingIndex !== -1 ? 'Quantity updated' : 'New item added', 
+      items: cart.items 
+    });
   } catch (err) {
     logger.error(err);
     res.status(500).json({ error: 'Server error' });
