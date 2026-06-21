@@ -29,20 +29,18 @@ A production-ready Shopping Cart microservice built with **Node.js, Express, and
 ### Example Requests
 
 **Add Item:**
-```bash
+```powershell
 Invoke-RestMethod -Method POST -Uri "http://localhost:3000/api/cart/items" `
   -Headers @{ "x-user-id" = "user123" } `
   -ContentType "application/json" `
-  -Body '{"productId":"p1","name":"Wireless Headphones","price":89.99,"quantity":2}'
-
+  -Body '{"productId":"p1","name":"any produt of your choice","price":xyz.abc,"quantity":x}'
+```
 **Checkout (JSON):**
 
-Bash
+```powershell
 
     Invoke-RestMethod -Method GET -Uri "http://localhost:3000/api/cart/checkout" -Headers @{ "x-user-id" = "user123" }
-
-**Checkout (Beautiful Table):** Open in browser: http://localhost:3000/api/cart/checkout/html (with header support)
-
+```
 * * *
 
 ## Setup Instructions
@@ -76,7 +74,22 @@ Bash
 
     npm run dev
 
-Server will start at http://localhost:3000
+Server will start at http://localhost:3000, and then open another powershell(keeping the npm run dev powershell open do not close this) and run these:
+
+**Add Item:**
+```powershell
+Invoke-RestMethod -Method POST -Uri "http://localhost:3000/api/cart/items" `
+  -Headers @{ "x-user-id" = "user123" } `
+  -ContentType "application/json" `
+  -Body '{"productId":"p1","name":"any produt of your choice","price":xyz.abc,"quantity":x}'
+```
+**Checkout (JSON):**
+
+```powershell
+
+    Invoke-RestMethod -Method GET -Uri "http://localhost:3000/api/cart/checkout" -Headers @{ "x-user-id" = "user123" }
+```
+* * *
 
 * * *
 
@@ -90,7 +103,7 @@ Server will start at http://localhost:3000
 
 * * *
 
-**Feature X**: HTML Table View + Rate Limiting + Logging + Cart TTL support
+**Feature X**: Table View + Rate Limiting + Logging + Cart TTL support
 
 * * *
 
