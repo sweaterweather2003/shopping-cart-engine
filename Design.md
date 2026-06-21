@@ -98,7 +98,7 @@
 ```js
 discountAmount = subtotal * discountRate
 finalTotal = subtotal - discountAmount
-
+```
 ## 9\. Trade-offs
 
 *   Used embedded items in Cart document (fast reads, acceptable for cart size).
