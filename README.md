@@ -1,43 +1,39 @@
-### 1\. README.md (Create this file in the root folder)
+# Adaptive E-Commerce Cart Engine
 
-Markdown
+A production-ready Shopping Cart microservice built with **Node.js, Express, and MongoDB** as per the Backend Engineering Assignment.
 
-    # Adaptive E-Commerce Cart Engine
-    
-    A production-ready Shopping Cart microservice built with **Node.js, Express, and MongoDB** as per the Backend Engineering Assignment.
-    
-    ## Features Implemented
-    
-    - Multi-tenant user cart isolation using `x-user-id` header
-    - Item Ingestion (Add / Update items in cart)
-    - Dynamic Tiered Promotional Campaign Engine (Basic → Standard → Premium)
-    - Checkout Summary with detailed pricing and discounts
-    - HTML Table View for easy visualization (`/checkout/html`)
-    - Clear Cart functionality
-    - Input Validation using Joi
-    - Rate Limiting
-    - Request Logging
-    - Clean Architecture with separation of concerns
-    
-    ---
-    
-    ## API Routes
-    
-    | Method | Endpoint                        | Description                          | Headers Required      |
-    |--------|---------------------------------|--------------------------------------|-----------------------|
-    | POST   | `/api/cart/items`               | Add or update item in cart           | `x-user-id`           |
-    | GET    | `/api/cart/checkout`            | Get JSON checkout summary            | `x-user-id`           |
-    | GET    | `/api/cart/checkout/html`       | Get beautiful HTML table view        | `x-user-id`           |
-    | DELETE | `/api/cart`                     | Clear entire cart                    | `x-user-id`           |
-    
-    ### Example Requests
-    
-    **Add Item:**
-    ```bash
-    Invoke-RestMethod -Method POST -Uri "http://localhost:3000/api/cart/items" `
-      -Headers @{ "x-user-id" = "user123" } `
-      -ContentType "application/json" `
-      -Body '{"productId":"p1","name":"Wireless Headphones","price":89.99,"quantity":2}'
+## Features Implemented
+
+- Multi-tenant user cart isolation using `x-user-id` header
+- Item Ingestion (Add / Update items in cart)
+- Dynamic Tiered Promotional Campaign Engine (Basic → Standard → Premium)
+- Checkout Summary with detailed pricing and discounts
+- HTML Table View for easy visualization (`/checkout/html`)
+- Clear Cart functionality
+- Input Validation using Joi
+- Rate Limiting
+- Request Logging
+- Clean Architecture with separation of concerns
+
+---
+
+## API Routes
+
+| Method | Endpoint                        | Description                          | Headers Required      |
+|--------|---------------------------------|--------------------------------------|-----------------------|
+| POST   | `/api/cart/items`               | Add or update item in cart           | `x-user-id`           |
+| GET    | `/api/cart/checkout`            | Get JSON checkout summary            | `x-user-id`           |
+| GET    | `/api/cart/checkout/html`       | Get beautiful HTML table view        | `x-user-id`           |
+| DELETE | `/api/cart`                     | Clear entire cart                    | `x-user-id`           |
+
+### Example Requests
+
+**Add Item:**
+```bash
+Invoke-RestMethod -Method POST -Uri "http://localhost:3000/api/cart/items" `
+  -Headers @{ "x-user-id" = "user123" } `
+  -ContentType "application/json" `
+  -Body '{"productId":"p1","name":"Wireless Headphones","price":89.99,"quantity":2}'
 
 **Checkout (JSON):**
 
